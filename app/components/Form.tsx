@@ -1,11 +1,14 @@
 import React from 'react'
-"use-client"
+import Link from 'next/link'
+// "use-client"
 const Form = () => {
   return (
     <>
 
 <div className="container">
       <div className="text-center mb-4">
+<Link href="/table" className="btn btn-dark mb-3">Display user</Link>
+         
          <h3>Add New User</h3>
          <p className="text-muted">Complete the form below to add a new user</p>
       </div>
@@ -39,8 +42,7 @@ const Form = () => {
             </div>
 
             <div>
-               <button type="submit" className="btn btn-success" name="submit">Save</button>
-               <a href="#" className="btn btn-danger">Cancel</a>
+               <button type="submit" className="btn btn-success btn-md" name="submit">Save</button> 
             </div>
          </form>
       </div>
