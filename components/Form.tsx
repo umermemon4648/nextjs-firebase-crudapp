@@ -1,7 +1,7 @@
 "use client"
 import React, {ChangeEvent, useState} from 'react'
 import Link from 'next/link'
-
+// import ali from '../hello'
 interface Data{
    fname: String;
    lname: String;
@@ -29,6 +29,9 @@ const Form: React.FC = () => {
 
   return (
     <>
+
+{/* <Link href="../../pages/dummy/test" className="btn btn-secondary mb-3">API ROUTE</Link> */}
+<Link href="../hello" className="btn btn-secondary mb-3">API ROUTE</Link>
 
 <div className="container">
       <div className="text-center mb-4">
