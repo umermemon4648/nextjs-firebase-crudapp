@@ -1,5 +1,5 @@
 import {updateDoc, getFirestore, collection} from 'firebase/firestore'
-import app from '../firebase/config'
+import app from '../../firebase/config'
 const firestore = getFirestore(app)
 
 export default async function handler(req, res){

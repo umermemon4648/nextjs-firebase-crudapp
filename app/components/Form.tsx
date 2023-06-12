@@ -1,7 +1,32 @@
-import React from 'react'
+"use client"
+import React, {ChangeEvent, useState} from 'react'
 import Link from 'next/link'
-// "use-client"
-const Form = () => {
+
+interface Data{
+   fname: String;
+   lname: String;
+   email: String;
+   gender: String;
+}
+
+const Form: React.FC = () => {
+
+   const [formData, setFormData] = useState<Data>({
+      fname: "",
+      lname: '',
+      email: '',
+      gender: 'male',
+
+   })
+
+   const getFormData = (e: ChangeEvent<HTMLInputElement>)=>{
+      e.preventDefault()
+      const {name, value} = e.target
+      setFormData({...formData, [name]: value})
+      console.log(formData)
+      
+   }
+
   return (
     <>
 
@@ -17,32 +42,36 @@ const Form = () => {
             <div className="row mb-3">
                <div className="col">
                   <label className="form-label">First Name:</label>
-                  <input type="text" className="form-control" name="first_name" placeholder="Muhammad"/>
+                  <input onChange={getFormData} type="text" className="form-control" value={formData.fname.toString()} name="fname" placeholder="Muhammad"/>
                </div>
 
                <div className="col">
                   <label className="form-label">Last Name:</label>
-                  <input type="text" className="form-control" name="last_name" placeholder="Umer"/>
+                  <input onChange={getFormData} type="text" className="form-control" value={formData.lname.toString()} name="lname" placeholder="Umer"/>
                </div>
             </div>
 
             <div className="mb-3">
                <label className="form-label">Email:</label>
-               <input type="email" className="form-control" name="email" placeholder="name@example.com"/>
+               <input onChange={getFormData} type="email" className="form-control" value={formData.email.toString()} name="email" placeholder="name@example.com"/>
             </div>
 
             <div className="form-group mb-3">
                <label>Gender:</label>
                &nbsp;
-               <input type="radio" className="form-check-input" name="gender" id="male" value="male"/>
-               <label htmlFor="male" className="form-input-label">Male</label>
+
+               
+               <input onChange={getFormData} type="radio"  name="gender" value="male" defaultChecked />
+               <label  className="form-input-label">Male</label>
                &nbsp;
-               <input type="radio" className="form-check-input" name="gender" id="female" value="female"/>
-               <label htmlFor="female" className="form-input-label">Female</label>
+               {/* checked={formData.gender === 'Female'} */}
+               
+               <input onChange={getFormData} type="radio"  name="gender" value="female" />
+               <label  className="form-input-label">Female</label>
             </div>
 
             <div>
-               <button type="submit" className="btn btn-success btn-md" name="submit">Save</button> 
+               <button type="button" className="btn btn-success btn-md" name="submit">Save</button> 
             </div>
          </form>
       </div>
