@@ -10,7 +10,7 @@ export default async function handler(req, res){
             const updatedSnapshot = await updateDoc(collection(firestore, 'users-info',id), 
             {fname, lname, email, gender}
             )
-            res.status(200).json({updatedSnapshot})
+            res.status(200).json({success:true, updatedSnapshot})
         } catch (error) {
             res.status(500).json({error:'Failed to update document'})
         }

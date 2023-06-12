@@ -9,7 +9,7 @@ export default async function handler(req, res){
 
         try {
             const snapshot = await addDoc(collection(firestore,'users-info'),{fname, lname, email, gender})
-            res.status(200).json({id: snapshot.id, fname, lname, email, gender})
+            res.status(200).json({success:true, id: snapshot.id, fname, lname, email, gender})
         } catch (error) {
             res.status(500).json({error: "Failed to add document"})
         }
